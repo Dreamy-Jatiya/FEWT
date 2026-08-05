@@ -1,0 +1,51 @@
+<!--8. Write a JavaScript that handles following mouse events. Add necessary elements. (B) 
+If the mouse is over the heading should turn yellow and if the mouse goes out of the heading it 
+should turn black. 
+If ƒndtime button is clicked show time and date information. 
+If button named “red” is clicked, background should change to red and If button named “green” is 
+clicked, background should 
+change to green. -->
+
+<!doctype html>
+<html>
+  <head>
+    <title>Mouse Events in JavaScript</title>
+  </head>
+  <body>
+    <h2 id="head">Mouse Event Demo</h2>
+    <button id="timeBtn">Find Time</button>
+    <p id="time"></p>
+    <button id="redBtn">Red</button>
+    <button id="greenBtn">Green</button>
+
+    <script>
+      // Change heading color on mouse events
+      var h = document.getElementById("head");
+
+      h.addEventListener("mouseover", function () {
+        h.style.color = "yellow";
+      });
+
+      h.addEventListener("mouseout", function () {
+        h.style.color = "black";
+      });
+
+      // Show current date and time
+      document.getElementById("timeBtn").addEventListener("click", function () {
+        document.getElementById("time").innerHTML = new Date();
+      });
+
+      // Change background color to red
+      document.getElementById("redBtn").addEventListener("click", function () {
+        document.body.style.backgroundColor = "red";
+      });
+
+      // Change background color to green
+      document
+        .getElementById("greenBtn")
+        .addEventListener("click", function () {
+          document.body.style.backgroundColor = "green";
+        });
+    </script>
+  </body>
+</html>

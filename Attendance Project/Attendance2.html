@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Attendance</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        background: lightblue;
+        text-align: center;
+      }
+
+      #setup {
+        margin-top: 80px;
+      }
+
+      input {
+        padding: 10px;
+        font-size: 20px;
+      }
+
+      button {
+        padding: 12px 25px;
+        font-size: 20px;
+        margin: 10px;
+      }
+
+      #attendance {
+        display: none;
+        margin-top: 100px;
+      }
+
+      #roll {
+        font-size: 120px;
+        color: blue;
+        margin-bottom: 30px;
+      }
+
+      #result {
+        display: none;
+        margin-top: 50px;
+      }
+
+      textarea {
+        width: 400px;
+        height: 120px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="setup">
+      <h1>Attendance</h1>
+      Start Roll Number<br /><br />
+      <input type="number" id="start" />
+      <br /><br />
+
+      End Roll Number<br /><br />
+      <input type="number" id="end" />
+      <br /><br />
+
+      <button onclick="start()">Start</button>
+    </div>
+    <div id="attendance">
+      <h2>Current Roll Number</h2>
+      <div id="roll"></div>
+      <button onclick="present()">Present</button>
+      <button onclick="absent()">Absent</button>
+      <p>⬅ Left Arrow = Present</p>
+      <p>➡ Right Arrow = Absent</p>
+    </div>
+
+    <div id="result">
+      <h2>Absent Roll Numbers (CSV)</h2>
+      <textarea id="csv"></textarea>
+    </div>
+
+    <script>
+      let startRoll;
+      let endRoll;
+      let currentRoll;
+      let absentList = [];
+
+      function start() {
+        startRoll = Number(document.getElementById("start").value);
+        endRoll = Number(document.getElementById("end").value);
+        currentRoll = startRoll;
+        document.getElementById("setup").style.display = "none";
+        document.getElementById("attendance").style.display = "block";
+        document.getElementById("roll").innerHTML = currentRoll;
+      }
+
+      function present() {
+        currentRoll++;
+        nextRoll();
+      }
+
+      function absent() {
+        absentList.push(currentRoll);
+        currentRoll++;
+        nextRoll();
+      }
+
+      function nextRoll() {
+        if (currentRoll <= endRoll) {
+          document.getElementById("roll").innerHTML = currentRoll;
+        } else {
+          document.getElementById("attendance").style.display = "none";
+
+          document.getElementById("result").style.display = "block";
+
+          document.getElementById("csv").value = absentList.join(",");
+        }
+      }
+
+      document.addEventListener("keydown", function (event) {
+        if (document.getElementById("attendance").style.display == "block") {
+          if (event.key == "ArrowLeft") {
+            present();
+          }
+          if (event.key == "ArrowRight") {
+            absent();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

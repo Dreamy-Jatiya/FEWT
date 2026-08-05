@@ -1,0 +1,55 @@
+<!--6. WAP to prepare student registration form and validate it using JavaScript. (A) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+    <form id="registrationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="0" required><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const age = document.getElementById("age").value;
+
+            // Validate form
+            if (!name || !email || !phone || !age) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Additional validation can be added here
+            if (age < 0) {
+                alert("Please enter a valid age.");
+                return;
+            }
+
+            // If validation passes, submit the form
+            alert("Registration successful!");
+        });
+    </script>
+</body>
+</html>

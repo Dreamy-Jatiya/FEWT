@@ -1,0 +1,31 @@
+<!--1. Demonstrate the Arrow functions. (A) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        func1=()=>{
+            console.log("Hello World");
+        }
+        func1();
+
+        func2=(a,b)=>{
+            return a+b;
+        }
+        console.log("Sum of 5 and 10 is: " + func2(5,10));
+
+        func3=(a,b)=>a+b;
+        console.log("Sum of 2 and 10 is: " + func3(2,10));
+
+        func4=a=>a*a;
+        console.log("Square: " + func4(5));
+
+
+    </script>
+</body>
+</html>

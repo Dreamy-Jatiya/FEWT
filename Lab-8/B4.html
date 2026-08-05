@@ -1,0 +1,48 @@
+<!--4. WAP to recognize which form event is fired. (B) -->
+
+<!doctype html>
+<html>
+  <head>
+    <title>Recognize Form Events</title>
+  </head>
+  <body>
+    <h2>Form Event Recognition</h2>
+
+    <form id="myForm">
+      Name:
+      <input type="text" id="name" /><br /><br />
+
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+
+    <p id="output"></p>
+
+    <script>
+      const form = document.getElementById("myForm");
+      const input = document.getElementById("name");
+      const output = document.getElementById("output");
+
+      input.addEventListener("focus", () => {
+        output.innerHTML = "Focus event fired";
+      });
+
+      input.addEventListener("blur", () => {
+        output.innerHTML = "Blur event fired";
+      });
+
+      input.addEventListener("change", () => {
+        output.innerHTML = "Change event fired";
+      });
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent form submission
+        output.innerHTML = "Submit event fired";
+      });
+
+      form.addEventListener("reset", () => {
+        output.innerHTML = "Reset event fired";
+      });
+    </script>
+  </body>
+</html>

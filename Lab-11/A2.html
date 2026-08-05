@@ -1,0 +1,25 @@
+<!--2. Demonstrate the spread operator. (A) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Example of spread operator with arrays
+        const arr1 = [1, 2, 3];
+        const arr2 = [4, 5, 6];
+        const combinedArr = [...arr1, ...arr2];
+        console.log(combinedArr); // Output: [1, 2, 3, 4, 5, 6]
+
+        // Example of spread operator with objects
+        const obj1 = { a: 1, b: 2 };
+        const obj2 = { c: 3, d: 4 };
+        const combinedObj = { ...obj1, ...obj2 };
+        console.log(combinedObj); // Output: { a: 1, b: 2, c: 3, d: 4 }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!--10. write a jQuery program to hide all elements with class ""myEle"" when clicked on a button. (A) 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="myEle">
+        <p>Element 1</p>
+    </div>
+    <div class="myEle">
+        <p>Element 2</p>
+    </div>
+    <div class="myEle">
+        <p>Element 3</p>
+    </div>
+    <button id="hideAllElements">Hide All Elements</button>
+
+    <script>
+        $(document).ready(() => {
+            $("#hideAllElements").click(() => {
+                $(".myEle").hide();
+            });
+        });
+    </script>
+</body>
+</html>

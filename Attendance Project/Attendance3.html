@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance System</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .container {
+        width: 400px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px gray;
+      }
+
+      input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .start {
+        background: #007bff;
+      }
+
+      .present {
+        background: green;
+      }
+
+      .absent {
+        background: red;
+      }
+
+      button:hover {
+        opacity: 0.8;
+      }
+
+      #roll {
+        font-size: 22px;
+        margin: 20px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Attendance System</h2>
+      <input type="number" id="start" placeholder="Enter Start Roll No" />
+      <input type="number" id="end" placeholder="Enter End Roll No" />
+      <br />
+
+      <button class="start" onclick="startAttendance()">
+        Start Attendance
+      </button>
+
+      <h2 id="roll"></h2>
+      <button class="present" onclick="present()">Present</button>
+      <button class="absent" onclick="absent()">Absent</button>
+    </div>
+
+    <script>
+      let current;
+      let last;
+      let absentRolls = [];
+
+      function startAttendance() {
+        current = Number(document.getElementById("start").value);
+        last = Number(document.getElementById("end").value);
+        absentRolls = [];
+        document.getElementById("roll").innerHTML = "Roll No : " + current;
+      }
+
+      function present() {
+        nextRoll();
+      }
+
+      function absent() {
+        absentRolls.push(current);
+        nextRoll();
+      }
+
+      function nextRoll() {
+        current++;
+
+        if (current <= last) {
+          document.getElementById("roll").innerHTML = "Roll No : " + current;
+        } else {
+          if (absentRolls.length == 0) {
+            document.getElementById("roll").innerHTML =
+              "<h3>Attendance Completed</h3><br>All Students are Present ✅";
+          } else {
+            document.getElementById("roll").innerHTML =
+              "<h3>Attendance Completed</h3>" +
+              "<p><b>Absent Roll Numbers:</b> " +
+              absentRolls.join(", ") +
+              "</p>";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1 id="myid">Hello World by ID</h1>
+    <h1 class="myclass">Hello World by Class</h1>
+    <h1>Hello World by Nothing</h1>
+    <button onclick="abc()">Click</button>
+    <script>
+        function abc(){
+            $(document).ready(()=>{
+                $("#myid").hide();
+            });
+        }
+    </script>
+</body>
+</html>

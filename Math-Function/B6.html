@@ -1,0 +1,28 @@
+<!--6. Write a program which asks distance to a building and angle to top of the building and 
+calculate the height of the building (B)-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="operation()" style="background-color: darkorange;">Give Value</button>
+    <script>
+        document.write("<br>");
+        document.write("<br>");
+        document.write("Click on button to get the height of the building");
+        document.write("<br>");
+        function operation(){
+            var distance = 100; // Example distance to the building
+            var angleInDegrees = 30; // Example angle to the top of the building
+            var angleInRadians = angleInDegrees * (Math.PI / 180); // Convert degrees to radians
+            var height = distance * Math.tan(angleInRadians); // Calculate height using tangent
+
+            document.write("Height of the Building: " + height.toFixed(2) + " units");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!--2. WAP to recognize which mouse event is ƒired. (A)-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #namee{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="events">
+        <h1 id="namee">Dreamy Jatiya</h1>
+    </div>
+
+    <script>
+        let namee=document.getElementById("namee");
+        namee.addEventListener("click",()=>{
+            alert("You clicked on the name.");
+        })
+        namee.addEventListener("mouseover",()=>{
+            alert("You hovered over the name.");
+        })
+        namee.addEventListener("mouseout",()=>{
+            alert("You moved out of the name.");
+        })
+        namee.addEventListener("mouseenter",()=>{
+            alert("You entered of the name.");
+        })
+        namee.addEventListener("dblclick",()=>{
+            alert("You double Clicked of the name.");
+        })
+        namee.addEventListener("mousedown",()=>{
+            alert("You Down the Mouse of the name.");
+        })
+        namee.addEventListener("mouseup",()=>{
+            alert("You Up the Mouse of the name.");
+        })
+        namee.addEventListener("mousemove",()=>{
+            alert("You Move the Mouse of the name.");
+        })
+        namee.addEventListener("mouseleave",()=>{
+            alert("You Leave the Mouse of the name.");
+        })
+        
+
+    </script>
+</body>
+</html>

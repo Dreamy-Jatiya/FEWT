@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr{
+            padding-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <label for="name">Name</label>
+    <input type="text" id="name">
+    <button onclick="AddData()" style="background-color: aquamarine;">ADD</button>
+    <br>
+    <br>
+    <table border="2" cellspacing="5px" style="padding:2px;margin:2px;">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody id="tabledata">
+
+        </tbody>
+    </table>
+
+    <script>
+        let arr=[]
+        function display(){
+            let temp=''
+            for(let i=0;i<arr.length;i++){
+                temp+=`<tr>
+                        <td>${i+1}</td>
+                        <td>${arr[i]}</td>
+                        <td><button onclick="DelData(${i})">DELETE</button></td>
+                    </tr>`
+            }
+            document.getElementById("tabledata").innerHTML = temp
+        }
+
+        function AddData(){
+            sname = document.getElementById("name").value;
+            if(sname==""){
+                alert("Enter The Name First")
+                return;
+            }
+            else{
+                arr.push(sname);
+                document.getElementById("name").value=" "
+                display()
+            }
+        }
+ 
+        function DelData(index){
+            arr.splice(index,1)
+            display()
+        }
+    </script>
+</body>
+</html>

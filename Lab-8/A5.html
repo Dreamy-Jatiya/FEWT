@@ -1,0 +1,24 @@
+<!--5. WAP to demonstrate change in properties of HTML element using JavaScript. (A) -->
+
+<!doctype html>
+<html>
+  <head>
+    <title>Change HTML Element Properties</title>
+  </head>
+  <body>
+    <p id="demo">Hello World!</p>
+    <button onclick="changeProp()">Change Properties</button>
+
+    <script>
+      function changeProp() {
+        var x = document.getElementById("demo");
+
+        x.innerHTML = "JavaScript is Awesome!";
+        x.style.color = "red";
+        x.style.backgroundColor = "yellow";
+        x.style.fontSize = "25px";
+        x.style.fontWeight = "bold";
+      }
+    </script>
+  </body>
+</html>

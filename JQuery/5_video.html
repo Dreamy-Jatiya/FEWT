@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1 id="myid">Hello World by ID</h1>
+    <h1 class="myclass">Hello World by Class</h1>
+    <h1>Hello World by Nothing</h1>
+    <input type="text" id="mytxt"/>
+    <div id="mydiv">Hello <span>World</span> By Div</div>
+    <button id="mybtn">Click Here</button>
+    <script>
+//        $("#mybtn").click(()=>{
+             //get
+//            console.log($("#mydiv").text());
+//        });
+//        $("#mybtn").click(()=>{
+//            console.log($("#mydiv").html());
+//        });
+//      $("#mybtn").click(()=>{
+//            console.log($("#mytxt").val());
+//        });
+
+        //set
+//        $("#mybtn").click(()=>{
+//            $("#mydiv").html("This is my new div Text");
+//        });
+//        $("#mybtn").click(()=>{
+//            $("#mydiv").text("This is my <h1>new</h1> div Text");
+//        });
+        $("#mybtn").click(()=>{
+            $("#mytxt").val("Some Value");
+        });
+    </script>
+</body>
+</html>

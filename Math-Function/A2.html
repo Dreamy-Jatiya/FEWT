@@ -1,0 +1,21 @@
+<!--Generate a Random Dice Number (1–6) using Math.random(). (A) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="operation()" style="background-color: darkorange;">Give Value</button>
+    <script>
+        document.write("<br>");
+        document.write("Click on button to get Random Dice Number");
+        document.write("<br>");
+        function operation(){
+            document.write("Random Dice Number : "+Math.floor(Math.random()*6)+1);
+        }
+    </script>
+</body>
+</html>

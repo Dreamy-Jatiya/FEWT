@@ -1,0 +1,31 @@
+<!--1. WAP to demonstrate callbacks in JavaScript. (A) -->
+<!--Function as argument pass kare-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback Function Demo</title>
+</head>
+<body>
+
+<script>
+    // Function with callback as argument
+    function greeting(msg, callback) {
+        document.write(msg + "<br>");
+        document.write("GOOD MORNING<br>");
+        callback();    // Call the callback function
+    }
+
+    // Callback function
+    function greet() {
+        document.write("GOOD DAY");
+    }
+
+    let str = "Hello";
+
+    // Passing function as argument
+    greeting(str, greet);
+</script>
+
+</body>
+</html>

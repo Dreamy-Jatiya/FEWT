@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1 id="myid">Hello World by ID</h1>
+    <h1 class="myclass">Hello World by Class</h1>
+    <h1>Hello World by Nothing</h1>
+    <button id="mybtn">Click Here</button>
+    <script>
+        $("#mybtn").click(()=>{
+            $("#myid").fadeToggle(2000,()=>{
+                alert("Hello World by ID is HIDE now")
+            });
+        });
+        // $("#mybtn").click(()=>{
+        //     $("#myid").hide();
+        // });
+        // $("#mybtn").click(()=>{
+        //     $("#myid").fadeOut(time in milliseconds);
+        // });
+        // $("#mybtn").click(()=>{
+        //     $("#myid").fadeToggle();
+        // });
+    </script>
+</body>
+</html>

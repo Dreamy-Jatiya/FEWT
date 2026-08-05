@@ -1,0 +1,32 @@
+<!--5. Calculate a person's Age from their Date of Birth. (B) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="operation()" style="background-color: darkorange;">Give Value</button>
+    <script>
+        document.write("<br>");
+        document.write("<br>");
+        document.write("Click on button to get the person's Age and month from their Date of Birth");
+        document.write("<br>");
+        function operation(){
+            var dob = new Date("2007-09-08"); // Example date of birth
+            var today = new Date();
+            var age = today.getFullYear() - dob.getFullYear();
+            var monthDifference = today.getMonth() - dob.getMonth();
+
+            // Adjust age if the birthday hasn't occurred yet this year
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+
+            document.write("Person's Age: " + age);
+        }
+    </script>
+</body>
+</html>

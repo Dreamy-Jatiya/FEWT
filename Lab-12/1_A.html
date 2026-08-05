@@ -1,0 +1,22 @@
+<!--1. write a jQuery to fade object when clicked on it. (A) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1 id="heading">Hello, this is my first jQuery webpage!</h1>
+    <script>
+        $(document).ready(()=>
+    {
+        $("#heading").click(()=>
+        {
+            $("#heading").fadeOut();
+        })
+    })
+    </script>
+</body>
+</html>

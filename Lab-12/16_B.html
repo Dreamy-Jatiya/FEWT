@@ -1,0 +1,25 @@
+<!--16. write a jQuery program to print current mouse coordinates on console. (B) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Coordinates</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <h2>Mouse Coordinates</h2>
+    <p>Move your mouse over the page to see coordinates.</p>
+
+    <script>
+        $(document).ready(function () {
+            $(document).mousemove(function (e) {
+                console.log("Mouse X: " + e.pageX + ", Mouse Y: " + e.pageY);
+            });
+        });
+    </script>
+
+</body>
+</html>

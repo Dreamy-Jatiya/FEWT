@@ -1,0 +1,32 @@
+<!--1. Demonstrate the use of array to ƒind maximum number. (A) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n=parseInt(prompt("Enter size = "));
+
+        let arr=[]
+        for(let i=0;i<n;i++){
+            arr[i]=parseInt(prompt("Enter Element  - "));
+        }
+
+        let max=arr[0];
+        for(let i=0;i<n;i++){
+            if(arr[i]>max){
+                max=arr[i];
+            }
+        }
+        
+        document.write(arr);
+        document.write("<br>")
+        document.write("<br>")
+        document.write("Max number is ",max);
+    </script>
+</body>
+</html>

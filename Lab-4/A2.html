@@ -1,0 +1,31 @@
+<!--2. WAP in JavaScript to find prime numbers between the given range of number. (A) -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let n1 = parseInt(prompt("Enter No.1 - "));
+      let n2 = parseInt(prompt("Enter No.2 - "));
+      let i, j;
+      let count = 0;
+      for (i = n1; i <= n2; i++) {
+        count = 0;
+        for (j = 2; j < i; j++) {
+          if (i % j == 0) {
+            count++;
+          }
+        }
+        if (count == 0) {
+          document.write(i);
+          document.write("<br>");
+
+        }
+      }
+    </script>
+  </body>
+</html>

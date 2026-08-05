@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>All Movies</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Poppins, sans-serif;
+      }
+
+      body {
+        background: #0f172a;
+        color: white;
+      }
+
+      header {
+        background: #111827;
+        padding: 20px 50px;
+      }
+
+      header a {
+        color: white;
+        text-decoration: none;
+      }
+
+      h1 {
+        text-align: center;
+        margin: 30px;
+      }
+
+      .movies {
+        width: 90%;
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+        gap: 25px;
+      }
+
+      .card {
+        background: #1e293b;
+        border-radius: 15px;
+        overflow: hidden;
+        cursor: pointer;
+
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+      }
+
+      .card img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+      }
+
+      .info {
+        padding: 15px;
+      }
+
+      .info h3 {
+        margin-bottom: 10px;
+      }
+
+      .info p {
+        color: #cbd5e1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html"> ⬅ Back Home </a>
+    </header>
+
+    <h1>All Movies</h1>
+
+    <div class="movies">
+      <div class="card" onclick="openMovie(1)">
+        <img src="https://picsum.photos/300/450?random=1" />
+
+        <div class="info">
+          <h3>Avengers</h3>
+
+          <p>⭐ 8.9</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openMovie(2)">
+        <img src="https://picsum.photos/300/450?random=2" />
+
+        <div class="info">
+          <h3>Batman</h3>
+
+          <p>⭐ 8.7</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openMovie(3)">
+        <img src="https://picsum.photos/300/450?random=3" />
+
+        <div class="info">
+          <h3>Interstellar</h3>
+
+          <p>⭐ 8.8</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openMovie(4)">
+        <img src="https://picsum.photos/300/450?random=4" />
+
+        <div class="info">
+          <h3>Joker</h3>
+
+          <p>⭐ 8.5</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openMovie(5)">
+        <img src="https://picsum.photos/300/450?random=5" />
+
+        <div class="info">
+          <h3>Dune</h3>
+
+          <p>⭐ 8.3</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openMovie(6)">
+        <img src="https://picsum.photos/300/450?random=6" />
+
+        <div class="info">
+          <h3>Spider-Man</h3>
+
+          <p>⭐ 8.4</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openMovie(id) {
+        window.location.href = "details.html?id=" + id;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!--4. Demonstrate the Array and Object Destructuring. (B) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Example of array destructuring
+        const numbers = [1, 2, 3, 4, 5];
+        const [first, second, ...rest] = numbers;
+        console.log(first); // Output: 1
+        console.log(second); // Output: 2
+        console.log(rest); // Output: [3, 4, 5]
+
+        // Example of object destructuring
+        const person = { name: "John", age: 30, city: "New York" };
+        const { name, age } = person;
+        console.log(name); // Output: John
+        console.log(age); // Output: 30
+    </script>
+</body>
+</html>

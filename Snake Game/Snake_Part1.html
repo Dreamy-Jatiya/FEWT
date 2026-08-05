@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Movement</title>
+
+    <style>
+      #myImg {
+        position: absolute;
+        top: 200px;
+        left: 200px;
+        height: 100px;
+      }
+
+      button {
+        padding: 10px;
+        margin: 5px;
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: darkblue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button onclick="increaseSize()">Increase Size</button>
+    <button onclick="decreaseSize()">Decrease Size</button>
+
+    <button onclick="startRight()">Right</button>
+    <button onclick="startLeft()">Left</button>
+
+    <button onclick="startTop()">Top</button>
+    <button onclick="startBottom()">Bottom</button>
+
+    <button onclick="stopMove()">Stop</button>
+
+    <br /><br />
+
+    <img src="./image/Screenshot (258).png" id="myImg" />
+
+    <script>
+      let currentSize = 100;
+      let currentLeft = 200;
+      let currentTop = 200;
+
+      let intervalId = null;
+
+      // Increase Image Size
+      function increaseSize() {
+        currentSize += 50;
+
+        let img = document.getElementById("myImg");
+        img.style.height = currentSize + "px";
+      }
+
+      // Decrease Image Size
+      function decreaseSize() {
+        if (currentSize > 50) {
+          currentSize -= 50;
+        }
+
+        let img = document.getElementById("myImg");
+        img.style.height = currentSize + "px";
+      }
+
+      // Start Moving Right
+      function startRight() {
+        clearInterval(intervalId);
+
+        intervalId = setInterval(moveRight, 10);
+      }
+
+      function moveRight() {
+        currentLeft += 10;
+
+        // Right to Left loop
+        if (currentLeft > window.innerWidth) {
+          currentLeft = -100;
+        }
+
+        let img = document.getElementById("myImg");
+        img.style.left = currentLeft + "px";
+      }
+
+      // Start Moving Left
+      function startLeft() {
+        clearInterval(intervalId);
+
+        intervalId = setInterval(moveLeft, 10);
+      }
+
+      function moveLeft() {
+        currentLeft -= 10;
+
+        // Left to Right loop
+        if (currentLeft < -100) {
+          currentLeft = window.innerWidth;
+        }
+
+        let img = document.getElementById("myImg");
+        img.style.left = currentLeft + "px";
+      }
+
+      // Start Moving Top
+      function startTop() {
+        clearInterval(intervalId);
+
+        intervalId = setInterval(moveTop, 10);
+      }
+
+      function moveTop() {
+        currentTop -= 10;
+
+        // Top to Bottom loop
+        if (currentTop < -100) {
+          currentTop = window.innerHeight;
+        }
+
+        let img = document.getElementById("myImg");
+        img.style.top = currentTop + "px";
+      }
+
+      // Start Moving Bottom
+      function startBottom() {
+        clearInterval(intervalId);
+
+        intervalId = setInterval(moveBottom, 10);
+      }
+
+      function moveBottom() {
+        currentTop += 10;
+
+        // Bottom to Top loop
+        if (currentTop > window.innerHeight) {
+          currentTop = -100;
+        }
+
+        let img = document.getElementById("myImg");
+        img.style.top = currentTop + "px";
+      }
+
+      // Stop Movement
+      function stopMove() {
+        clearInterval(intervalId);
+      }
+    </script>
+  </body>
+</html>

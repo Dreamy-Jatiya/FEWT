@@ -1,0 +1,196 @@
+<!--4. Create a Snake game using Java script. (C) -->
+
+<!doctype html>
+<html>
+  <head>
+    <title>Snake Game</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial;
+      }
+
+      body {
+        background: #222;
+        color: white;
+        text-align: center;
+      }
+
+      .header {
+        background: #333;
+        padding: 15px;
+        display: flex;
+        justify-content: space-around;
+        font-size: 24px;
+      }
+
+      #gameArea {
+        width: 900px;
+        height: 500px;
+        background: white;
+        margin: 20px auto;
+        position: relative;
+        overflow: hidden;
+        border: 5px solid green;
+      }
+
+      #myImg,
+      #food {
+        position: absolute;
+      }
+
+      .controls {
+        margin: 15px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        margin: 5px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #218838;
+      }
+    </style>
+  </head>
+
+  <body onkeyup="checkInput(event)">
+    <div class="header">
+      <div>❤️ Life : <span id="life">3</span></div>
+      <div>⭐ Score : <span id="score">0</span></div>
+    </div>
+
+    <div class="controls">
+      <button onclick="startLeft()">⬅ Left</button>
+      <button onclick="startRight()">Right ➡</button>
+      <button onclick="startTop()">⬆ Up</button>
+      <button onclick="startBottom()">⬇ Down</button>
+    </div>
+
+    <div id="gameArea">
+      <img src="Snake.png" id="myImg" />
+      <img src="food.png" id="food" />
+    </div>
+
+    <script>
+      let x = 50,
+        y = 50;
+      let fx = 200,
+        fy = 200;
+
+      let life = 3;
+      let score = 0;
+
+      let speed = 15;
+      let timer;
+
+      let snake = document.getElementById("myImg");
+      let food = document.getElementById("food");
+
+      food.style.left = fx + "px";
+      food.style.top = fy + "px";
+
+      function checkInput(e) {
+        if (e.key == "ArrowRight") startRight();
+        if (e.key == "ArrowLeft") startLeft();
+        if (e.key == "ArrowUp") startTop();
+        if (e.key == "ArrowDown") startBottom();
+      }
+
+      function startRight() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+          x++;
+          snake.src = "Snake_right.png";
+          snake.style.left = x + "px";
+          checkGame();
+        }, speed);
+      }
+
+      function startLeft() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+          x--;
+          snake.src = "Snake_left.png";
+          snake.style.left = x + "px";
+          checkGame();
+        }, speed);
+      }
+
+      function startTop() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+          y--;
+          snake.src = "Snake_top.png";
+          snake.style.top = y + "px";
+          checkGame();
+        }, speed);
+      }
+
+      function startBottom() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+          y++;
+          snake.src = "Snake_bottom.png";
+          snake.style.top = y + "px";
+          checkGame();
+        }, speed);
+      }
+
+      function checkGame() {
+        let area = document.getElementById("gameArea");
+
+        if (
+          x < 0 ||
+          y < 0 ||
+          x > area.clientWidth - 80 ||
+          y > area.clientHeight - 80
+        ) {
+          life--;
+
+          document.getElementById("life").innerHTML = life;
+
+          x = 50;
+          y = 50;
+
+          snake.style.left = x + "px";
+          snake.style.top = y + "px";
+
+          if (life == 0) {
+            clearInterval(timer);
+
+            document.body.innerHTML =
+              "<h1 style='color:red;margin-top:200px'>GAME OVER<br>Score : " +
+              score +
+              "</h1>";
+          }
+        }
+
+        if (Math.abs(x - fx) < 50 && Math.abs(y - fy) < 50) {
+          score++;
+
+          document.getElementById("score").innerHTML = score;
+
+          if (score % 5 == 0 && speed > 5) {
+            speed -= 2;
+          }
+
+          fx = Math.random() * (area.clientWidth - 60);
+          fy = Math.random() * (area.clientHeight - 60);
+
+          food.style.left = fx + "px";
+          food.style.top = fy + "px";
+        }
+      }
+    </script>
+  </body>
+</html>

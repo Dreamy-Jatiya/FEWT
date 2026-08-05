@@ -1,0 +1,31 @@
+<!-- Display the Current Date, Time, Day, Month, and Year using the Date object. (A)-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="operation()" style="background-color: darkorange;">Give Value</button>
+    <script>
+        document.write("<br>");
+        document.write("<br>");
+        document.write("Click on button to get the Current Date, Time, Day, Month, and Year using the Date object.");
+        document.write("<br>");
+        function operation(){
+            var date = new Date();
+            document.write("Current Year: "+date.getFullYear());
+            document.write("<br>");
+            document.write("Current Month: "+(date.getMonth()+1));
+            document.write("<br>");
+            document.write("Current Date: "+date.getDate());
+            document.write("<br>");
+            document.write("Current Day: "+date.getDay());
+            document.write("<br>");
+            document.write("Current Time: "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
+        }
+    </script>
+</body>
+</html>

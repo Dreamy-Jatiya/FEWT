@@ -1,0 +1,45 @@
+<!--15. write a jQuery program to set background of an element to red when mouse enter on all 
+paragraphs (A) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Enter and Leave Example</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        p{
+            padding: 10px;
+            border: 1px solid black;
+            width: 200px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Mouse Enter on Paragraph</h2>
+
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>Paragraph 3</p>
+
+    <script>
+        $(document).ready(function () {
+
+            $("p").mouseenter(function () {
+                $(this).css("background-color", "red");
+            });
+
+            $("p").mouseleave(function () {
+                $(this).css("background-color", "white");
+            });
+
+        });
+    </script>
+
+</body>
+</html>

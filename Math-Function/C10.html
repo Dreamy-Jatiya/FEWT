@@ -1,0 +1,29 @@
+<!--10. Generate a Random Password (alpha numberical) of user-defined length using the 
+Math object. (C) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="operation()" style="background-color: darkorange;">Give Value</button>
+    <script>
+        document.write("<br>");
+        document.write("<br>");
+        document.write("Click on button to get the Random Password (alpha numberical) of user-defined length using the Math object.");
+        document.write("<br>");
+        function operation(){
+            var length = prompt("Enter the length of the password:");
+            var password = "";
+            var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            for (var i = 0; i < length; i++) {
+                password += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            document.write("Random Password: " + password);
+        }
+    </script>
+</body>
+</html>

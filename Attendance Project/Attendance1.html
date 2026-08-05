@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendence</title>
+    <style>
+       
+*{
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    margin: 0;
+    background: #f2f6ff;
+}
+
+/* Header */
+.header{
+    background: linear-gradient(135deg, #101010, #333);
+    padding: 25px;
+    text-align: center;
+    color: white;
+}
+
+h1{
+    margin: 0;
+    color: rgb(243,160,202);
+    font-size: 40px;
+}
+
+.header h2{
+    margin: 10px 0;
+    color: rgb(142,211,243);
+    font-size: 25px;
+}
+
+
+/* Main container */
+.container{
+    width: 90%;
+    margin: 30px auto;
+}
+
+
+/* Buttons */
+.btn-row{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.present-btn,
+.absent-btn{
+    width: 180px;
+    height: 55px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    background: linear-gradient(135deg,#8ed3f3,pink);
+}
+
+.present-btn:hover,
+.absent-btn:hover{
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px gray;
+}
+
+
+/* Roll number area */
+#rollNo{
+    width: 65%;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
+}
+
+
+/* Each student row */
+.roll-chip{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin:10px 0;
+    padding:10px;
+    border-radius:10px;
+    background:#eef7ff;
+    font-size:18px;
+}
+
+
+.roll-chip input[type="checkbox"]{
+    width:20px;
+    height:20px;
+    cursor:pointer;
+}
+
+
+.roll-chip span{
+    width:60px;
+    font-weight:bold;
+    color:#0057b8;
+}
+
+
+/* Student name */
+.student-name{
+    color:#222;
+    font-size:18px;
+}
+
+
+/* Absentee box */
+.note-card{
+    position:fixed;
+    right:40px;
+    top:200px;
+    width:300px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+
+.note-card h2{
+    margin:0 0 10px;
+    color:#e83e8c;
+    text-align:center;
+}
+
+
+.count{
+    display:block;
+    text-align:center;
+    color:gray;
+    margin-bottom:10px;
+}
+
+
+#absentList{
+    width:100%;
+    height:350px;
+    resize:none;
+    padding:15px;
+    font-size:16px;
+    border-radius:10px;
+    border:2px solid #ddd;
+    background:#fff8fc;
+}
+
+
+/* Mobile view */
+@media(max-width:900px){
+
+    #rollNo{
+        width:100%;
+    }
+
+    .note-card{
+        position:static;
+        width:100%;
+        margin-top:30px;
+    }
+
+    h1{
+        font-size:30px;
+    }
+
+    .present-btn,
+    .absent-btn{
+        width:140px;
+    }
+}
+
+</style>
+    </style>
+   
+        
+</head>
+<body>
+
+    
+
+    <div class="header">
+        <h1>Attendance Register</h1>
+        <h2>Roll Call : 101 – 256</h2>
+        <div class="rule"></div>
+    </div>
+    <div class="container">
+        <div class="btn-row">
+            <button class=" present-btn" onclick="checkedUnchecked(true)">Present All</button>
+            <button class=" absent-btn" onclick="checkedUnchecked(false)">Absent All</button>
+        </div>
+        
+       
+            <div  id="rollNo">
+                <div>
+                <script>
+                    
+let student = 
+   [
+    {name:"C.J"},
+    {name:"T.M"},
+    {name:"T.U"},
+    {name:"V.G"},
+    {name:"B.A"},
+    {name:"J.V"},
+    {name:"C.S"},
+    {name:"P.S"},
+    {name:"T.P"},
+    {name:"D.C"},
+    {name:"D.V"},
+    {name:"D.D"},
+    {name:"B.S"},
+    {name:"R.V"},
+    {name:"G.R"},
+    {name:"V.T"},
+    {name:"K.B"},
+    {name:"K.K"},
+    {name:"M.K"},
+    {name:"K.K"},
+    {name:"N.R"},
+    {name:"L.H"},
+    {name:"S.H"},
+    {name:"R.B"},
+    {name:"D.A"},
+    {name:"P.B"},
+    {name:"Z.P"},
+    {name:"S.P"},
+    {name:"K.D"},
+    {name:"M.H"},
+    {name:"S.S"},
+    {name:"V.G"},
+    {name:"P.G"},
+    {name:"P.B"},
+    {name:"K.B"},
+    {name:"M.M"},
+    {name:"R.A"},
+    {name:"D.S"},
+    {name:"K.M"},
+    {name:"N.B"},
+    {name:"V.H"},
+    {name:"D.C"},
+    {name:"R.R"},
+    {name:"R.P"},
+    {name:"D.G"},
+    {name:"G.K"},
+    {name:"G.N"},
+    {name:"J.M"},
+    {name:"B.J"},
+    {name:"B.J"},
+    {name:"Z.B"},
+    {name:"S.K"},
+    {name:"P.C"},
+    {name:"B.V"},
+    {name:"M.A"},
+    {name:"S.A"},
+    {name:"D.K"},
+    {name:"D.P"},
+    {name:"A.N"},
+    {name:"H.P"},
+    {name:"R.D"},
+    {name:"M.B"},
+    {name:"P.M"},
+    {name:"J.P"},
+    {name:"H.V"},
+    {name:"S.M"},
+    {name:"J.J"},
+    {name:"D.M"},
+    {name:"P.J"},
+    {name:"D.A"},
+    {name:"R.A"},
+    {name:"P.J"},
+    {name:"M.P"},
+    {name:"P.J"},
+    {name:"D.J"},
+    {name:"S.D"},
+    {name:"T.C"},
+    {name:"S.S"},
+    {name:"S.S"},
+    {name:"K.M"},
+    {name:"A.R"},
+    {name:"P.H"},
+    {name:"V.M"},
+    {name:"V.K"},
+    {name:"P.S"},
+    {name:"A.R"},
+    {name:"J.R"},
+    {name:"M.B"},
+    {name:"D.P"},
+    {name:"K.P"},
+    {name:"R.K"},
+    {name:"K.P"},
+    {name:"P.R"},
+    {name:"R.K"},
+    {name:"G.B"},
+    {name:"G.D"},
+    {name:"B.A"},
+    {name:"M.V"},
+    {name:"B.R"},
+    {name:"P.B"},
+    {name:"G.P"},
+    {name:"P.J"},
+    {name:"C.K"},
+    {name:"V.K"},
+    {name:"S.S"},
+    {name:"B.M"},
+    {name:"K.N"},
+    {name:"G.K"},
+    {name:"A.A"},
+    {name:"D.G"},
+    {name:"P.C"},
+    {name:"L.S"},
+    {name:"H.D"},
+    {name:"V.P"},
+    {name:"J.B"},
+    {name:"S.B"},
+    {name:"P.H"},
+    {name:"M.K"},
+    {name:"K.D"},
+    {name:"P.B"},
+    {name:"S.K"},
+    {name:"M.K"},
+    {name:"K.P"},
+    {name:"K.P"},
+    {name:"K.P"},
+    {name:"P.D"},
+    {name:"T.J"},
+    {name:"P.V"},
+    {name:"P.H"},
+    {name:"L.B"},
+    {name:"V.P"},
+    {name:"J.A"},
+    {name:"S.V"},
+    {name:"Z.B"},
+    {name:"C.R"},
+    {name:"V.R"},
+    {name:"S.A"},
+    {name:"H.D"},
+    {name:"A.K"},
+    {name:"G.A"},
+    {name:"G.D"},
+    {name:"V.A"},
+    {name:"U.G"},
+    {name:"A.R"},
+    {name:"H.D"},
+    {name:"K.P"},
+    {name:"D.H"},
+    {name:"B.R"},
+    {name:"U.B"},
+    {name:"V.J"},
+    {name:"V.J"},
+    {name:"K.I"},
+    {name:"K.D"},
+    {name:"G.D"},
+    {name:"D.L"},
+    {name:"P.A"}
+   
+];
+                    for( let i=101;i<=265;i++)
+                    {
+                        document.write(`<label class="roll-chip"><input onclick="updateAbsent()" type="checkbox" value="${i}"><span>${i}</span></label>`);
+                     document.write(`<input type="text" value="${student[i-101].name}" readonly>`);
+                        document.write("</br>")
+                    }
+                
+                </script>
+                </div>
+            </div>
+            <div class="col-4" id="absentNo">
+                <div class="note-card">
+                    <h2>Absentees</h2>
+                    <span class="count">Updates live as you tick the register</span>
+                    <script>
+                        document.write(`<textarea rows="10" id="absentList" readonly></textarea>`)
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+
+        function checkedUnchecked(temp){
+           let allStudent = document.querySelectorAll('input[type="checkbox"]');
+            for(i=0;i<allStudent.length;i++){
+                allStudent[i].checked = temp;
+            }
+            updateAbsent();
+        }
+        function updateAbsent(){
+       let allStudent = document.querySelectorAll('input[type="checkbox"]');
+            absent=[];
+            for(i=0;i<allStudent.length;i++){
+                if(!allStudent[i].checked){
+                    absent.push(allStudent[i].value);
+                }
+            }
+            document.getElementById("absentList").innerHTML = absent;
+        }
+    </script>
+</body>
+</html>

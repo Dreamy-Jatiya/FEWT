@@ -1,0 +1,24 @@
+<!--4. WAP in JavaScript to print the GCD of two number. (A) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=parseInt(prompt("Enter Number 1- "));
+        let b=parseInt(prompt("Enter Number 2- "));
+        let i,j;
+        let gcd=1;
+        for(i=0;i<=a && i<=b;i++){
+            if(a%i==0 && b%i==0){
+                gcd=i;
+                document.write(gcd);
+            }
+        }
+    </script>
+</body>
+</html>

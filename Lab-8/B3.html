@@ -1,0 +1,33 @@
+<!--3. WAP to recognize which keyboard event is ƒired. (B)-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hello{
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="txt">
+
+    <script>
+        let hello=document.getElementById("txt");
+        hello.addEventListener("keydown",()=>{
+            alert("You pressed a key.");
+        })
+        hello.addEventListener("keypress",()=>{
+            alert("You pressed a key and released it.");
+        })
+        hello.addEventListener("keyup",()=>{
+            alert("You released a key.");
+        })
+    </script>
+</body>
+</html>
+
